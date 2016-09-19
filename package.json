@@ -12,7 +12,7 @@
     "type-definitions"
   ],
   "scripts": {
-    "build": "rollup -c && buba src -o lib",
+    "build": "rollup -c && uglifyjs dist/most-last.js -o dist/most-last.min.js && buba src -o lib",
     "test": "northbrook eslint && northbrook run mocha",
     "commit": "northbrook commit",
     "release": "northbrook release",
@@ -52,7 +52,8 @@
     "northbrook": "^3.1.0",
     "power-assert": "^1.4.1",
     "rollup": "^0.36.0",
-    "rollup-plugin-buba": "^1.0.1"
+    "rollup-plugin-buba": "^1.0.1",
+    "uglify-js": "^2.7.3"
   },
   "peerDependencies": {
     "most": "^1.0.3"
