@@ -1,12 +1,10 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('most')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'most'], factory) :
-  (factory((global.mostLast = global.mostLast || {}),global.most));
-}(this, (function (exports,most) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+  (factory((global.mostLast = global.mostLast || {})));
+}(this, (function (exports) { 'use strict';
 
-function last(stream) {
-  return new most.Stream(new Last(stream.source));
-}
+var last = function (stream) { return new stream.constructor(new Last(stream.source)); };
 
 var Last = function Last(source) {
   this.source = source;
@@ -43,3 +41,4 @@ exports.last = last;
 Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
+//# sourceMappingURL=most-last.js.map
