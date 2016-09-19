@@ -1,0 +1,60 @@
+{
+  "name": "most-last",
+  "version": "0.0.0",
+  "description": "Emit the last value of your streams",
+  "main": "lib/index.js",
+  "jsnext:main": "src/index.js",
+  "module": "src/index.js",
+  "typings": "type-definitions/most-last.d.ts",
+  "files": [
+    "dist",
+    "lib",
+    "type-definitions"
+  ],
+  "scripts": {
+    "build": "rollup -c && buba src -o lib",
+    "test": "northbrook eslint && northbrook run mocha",
+    "commit": "northbrook commit",
+    "release": "northbrook release",
+    "preversion": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mostjs-community/last.git"
+  },
+  "keywords": [
+    "most.js",
+    "reactive",
+    "streams",
+    "last",
+    "observable"
+  ],
+  "author": "Tylor Steinberger <tlsteinberger167@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mostjs-community/last/issues"
+  },
+  "homepage": "https://github.com/mostjs-community/last#readme",
+  "config": {
+    "ghooks": {
+      "commit-msg": "node ./node_modules/.bin/validate-commit-msg"
+    },
+    "validate-commit-msg": {
+      "types": "@northbrook/commit-types"
+    }
+  },
+  "devDependencies": {
+    "@northbrook/eslint": "^1.2.1",
+    "@northbrook/mocha": "^1.0.0",
+    "babel-preset-power-assert": "^1.0.0",
+    "buba": "^3.0.1",
+    "most": "^1.0.3",
+    "northbrook": "^3.1.0",
+    "power-assert": "^1.4.1",
+    "rollup": "^0.36.0",
+    "rollup-plugin-buba": "^1.0.1"
+  },
+  "peerDependencies": {
+    "most": "^1.0.3"
+  }
+}

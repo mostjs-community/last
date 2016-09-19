@@ -1,0 +1,8 @@
+{
+  "extends": "mocha",
+  "plugins": ["eslint"],
+  "eslint": {},
+  "mocha": {
+    "require": ["buba/register"]
+  }
+}
