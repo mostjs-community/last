@@ -1,6 +1,6 @@
 {
   "name": "most-last",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Emit the last value of your streams",
   "main": "lib/index.js",
   "jsnext:main": "src/index.js",
