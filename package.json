@@ -41,6 +41,7 @@
   "devDependencies": {
     "@most/core": "^1.2.3",
     "@most/scheduler": "^1.1.0",
+    "@most/types": "^1.0.0",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-power-assert": "^1.0.0",
