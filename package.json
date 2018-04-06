@@ -12,7 +12,7 @@
     "type-definitions"
   ],
   "scripts": {
-    "build": "rollup -c && uglifyjs dist/most-last.js -o dist/most-last.min.js && buba src -o lib",
+    "build": "rollup -c && uglifyjs dist/most-last.js -o dist/most-last.min.js && buba -i src/ -o lib/",
     "test": "./node_modules/.bin/eslint src/ && ./node_modules/.bin/mocha --require babel-core/register ",
     "preversion": "npm run build"
   },
