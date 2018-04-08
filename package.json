@@ -46,7 +46,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-power-assert": "^1.0.0",
     "babel-register": "^6.26.0",
-    "buba": "^3.0.1",
+    "buba": "^4.0.2",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.10.0",
