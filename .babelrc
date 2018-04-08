@@ -1,9 +1,7 @@
 {
   "presets": [
     ["env", {
-      "targets": {
-        "node": "current"
-      }
+      "modules": false
     }],
     "power-assert"
   ]
