@@ -1,10 +1,13 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-  typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (factory((global.mostLast = global.mostLast || {})));
-}(this, (function (exports) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory() :
+  typeof define === 'function' && define.amd ? define(factory) :
+  (factory());
+}(this, (function () { 'use strict';
 
-var last = function (stream) { return new stream.constructor(new Last(stream.source)); };
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var last = exports.last = function (stream) { return new Last(stream); };
 
 var Last = function Last(source) {
   this.source = source;
@@ -35,10 +38,6 @@ LastSink.prototype.end = function end (t, x) {
   }
   this.sink.end(t, x);
 };
-
-exports.last = last;
-
-Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
 //# sourceMappingURL=most-last.js.map

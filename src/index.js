@@ -1,4 +1,5 @@
-export const last = stream => new stream.constructor(new Last(stream.source))
+export const last = stream =>
+  new Last(stream)
 
 class Last {
   constructor (source) {
