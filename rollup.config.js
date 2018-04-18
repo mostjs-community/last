@@ -1,10 +1,10 @@
-import buba from 'rollup-plugin-buba'
+import typescript from 'rollup-plugin-typescript'
 
 export default {
-  entry: 'src/index.js',
+  entry: 'src/index.ts',
   dest: 'dist/most-last.js',
   moduleName: 'mostLast',
   format: 'umd',
   sourceMap: true,
-  plugins: [ buba() ]
+  plugins: [ typescript() ]
 }
