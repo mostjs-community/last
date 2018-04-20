@@ -2,4 +2,6 @@ node_modules
 *.log
 *log*
 lib/
+lib.es2015/
 .idea/
+.rpt2_cache

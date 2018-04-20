@@ -7,7 +7,7 @@
 var last = function (stream) {
     return new Last(stream);
 };
-var Last = (function () {
+var Last = /** @class */ (function () {
     function Last(source) {
         this.source = source;
     }
@@ -16,22 +16,19 @@ var Last = (function () {
     };
     return Last;
 }());
-var LastSink = (function () {
+var LastSink = /** @class */ (function () {
     function LastSink(sink) {
         this.sink = sink;
-        this.has = false;
-        this.value = void 0;
     }
-    LastSink.prototype.event = function (t, x) {
-        this.has = true;
-        this.value = x;
+    LastSink.prototype.event = function (_, val) {
+        this.held = { val: val };
     };
     LastSink.prototype.error = function (t, e) {
         this.sink.error(t, e);
     };
     LastSink.prototype.end = function (t) {
-        if (this.has) {
-            this.sink.event(t, this.value);
+        if (this.held) {
+            this.sink.event(t, this.held.val);
         }
         this.sink.end(t);
     };
@@ -39,6 +36,7 @@ var LastSink = (function () {
 }());
 
 exports.last = last;
+exports.Last = Last;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 

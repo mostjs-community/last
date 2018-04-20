@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "types": [],
+    "baseUrl": "../",
+    "sourceMap": true,
+    "target": "es2015",
+    "module": "es2015",
+    "outDir": "../lib.es2015"
+  },
+  "exclude": [
+    "../test/**/*.*"
+  ]
+}

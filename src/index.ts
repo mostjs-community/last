@@ -1,9 +1,13 @@
-import { Stream, Sink, Scheduler, Time } from '@most/types'
+import { Disposable, Stream, Sink, Scheduler, Time } from '@most/types'
 
-export const last = <T>(stream: Stream<T>) =>
+interface Held<T> {
+  val: T;
+}
+
+const last = <T>(stream: Stream<T>) =>
   new Last(stream)
 
-class Last<T> {
+class Last<T> implements Stream<T> {
   constructor (private source: Stream<T>) {}
 
   run (sink: Sink<T>, scheduler: Scheduler) {
@@ -11,15 +15,12 @@ class Last<T> {
   }
 }
 
-class LastSink<V> {
-  private has: boolean = false
-  private value: V = void 0
+class LastSink<T> implements Sink<T> {
+  private held?: Held<T>
+  constructor (private sink: Sink<T>) {}
 
-  constructor (private sink: Sink<V>) {}
-
-  event (t: Time, x: V) {
-    this.has = true
-    this.value = x
+  event (_: Time, val: T) {
+    this.held = { val }
   }
 
   error (t: Time, e: Error) {
@@ -27,9 +28,11 @@ class LastSink<V> {
   }
 
   end (t: Time) {
-    if (this.has) {
-      this.sink.event(t, this.value)
+    if (this.held) {
+      this.sink.event(t, this.held.val)
     }
     this.sink.end(t)
   }
 }
+
+export { last, Last }
