@@ -1,23 +1,26 @@
-import { Disposable, Stream, Sink, Scheduler, Time } from '@most/types'
+import { Disposable, Scheduler, Sink, Stream, Time } from '@most/types'
 
-interface Held<T> {
-  val: T;
-}
+type MaybeHeld<T> = { val: T } | undefined
 
 const last = <T>(stream: Stream<T>) =>
   new Last(stream)
 
 class Last<T> implements Stream<T> {
-  constructor (private source: Stream<T>) {}
+  constructor (
+    private source: Stream<T>
+  ) {}
 
-  run (sink: Sink<T>, scheduler: Scheduler) {
+  run (sink: Sink<T>, scheduler: Scheduler): Disposable {
     return this.source.run(new LastSink(sink), scheduler)
   }
 }
 
 class LastSink<T> implements Sink<T> {
-  private held?: Held<T>
-  constructor (private sink: Sink<T>) {}
+  private held: MaybeHeld<T>
+
+  constructor (
+    private sink: Sink<T>
+  ) {}
 
   event (_: Time, val: T) {
     this.held = { val }
