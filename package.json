@@ -8,8 +8,7 @@
   "typings": "lib/index.d.ts",
   "files": [
     "dist",
-    "lib",
-    "type-definitions"
+    "lib"
   ],
   "scripts": {
     "build": "npm run build:commonjs && npm run build:es2015 && npm run build:umd",
@@ -29,6 +28,7 @@
   },
   "keywords": [
     "most.js",
+    "@most/core",
     "reactive",
     "streams",
     "last",
