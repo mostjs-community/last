@@ -19,7 +19,9 @@
     "test": "npm run test:lint && npm run test:unit",
     "test:lint": "./node_modules/.bin/tslint -p tsconfig.json -c tslint.json 'src/*.ts'",
     "test:unit": "./node_modules/.bin/mocha -r ts-node/register src/*.test.ts",
-    "preversion": "npm run build"
+    "prebuild": "npm run test",
+    "preversion": "npm run build",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",

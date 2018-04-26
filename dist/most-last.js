@@ -36,7 +36,6 @@
   }());
 
   exports.last = last;
-  exports.Last = Last;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 

@@ -2,7 +2,7 @@ import { Disposable, Scheduler, Sink, Stream, Time } from '@most/types'
 
 type MaybeHeld<T> = { val: T } | undefined
 
-const last = <T>(stream: Stream<T>) =>
+const last = <T>(stream: Stream<T>): Stream<T> =>
   new Last(stream)
 
 class Last<T> implements Stream<T> {
@@ -38,4 +38,4 @@ class LastSink<T> implements Sink<T> {
   }
 }
 
-export { last, Last }
+export { last }
