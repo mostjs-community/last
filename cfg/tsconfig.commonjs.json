@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "types": [],
+    "baseUrl": "../",
+    "sourceMap": true,
+    "target": "es5",
+    "module": "commonjs",
+    "outDir": "../lib"
+  },
+  "exclude": [
+    "../**/*.test.ts"
+  ]
+}
